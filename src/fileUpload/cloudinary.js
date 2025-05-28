@@ -25,13 +25,12 @@ const upload_on_cloudinary = async (local_file_path) => {
 
         console.log("✅ Cloudinary Upload Success:", response.secure_url)
         
-
-        fs.unlinkSync(local_file_path)
+        if (fs.existsSync(local_file_path)) {
+            fs.unlinkSync(local_file_path)
+        }
 
         return response
     }catch(error){
-        console.error("❌ Cloudinary Upload Error:", error);
-
         fs.unlinkSync(local_file_path)
         return null
     }

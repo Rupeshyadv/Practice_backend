@@ -74,7 +74,7 @@ userSchema.methods.generateAccessToken = function () {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
     )
-    return access_token
+    return access_token 
 }
 
 userSchema.methods.generateRefreshToken = function () {
